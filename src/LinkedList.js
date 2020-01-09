@@ -26,7 +26,6 @@ class LinkedList {
     return this.tail;
 
     // console.log("wll", this.tail);
-
     //1 - we need iterate through the list
     //2 - we need to get to the end of the list
     //3 - we need to add the object value to the new node
