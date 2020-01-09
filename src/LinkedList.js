@@ -12,20 +12,17 @@ class LinkedList {
   }
 
   appendToTail(value) {
-    // console.log("headValue", this.logA);
-    // let linkedList = new LinkedList(value);
-    // linkedList.tail = new Node(value);
-
-    if (this.next === undefined) {
-      this.head = new Node(value);
+    const newNode = new Node(value);
+    if (this.head === undefined) {
+      this.head = newNode;
       this.tail = this.head;
       return this.head;
     }
 
-    this.tail = new Node(value);
+    this.tail.next = newNode;
+    this.tail = newNode;
     return this.tail;
 
-    // console.log("wll", this.tail);
     //1 - we need iterate through the list
     //2 - we need to get to the end of the list
     //3 - we need to add the object value to the new node
@@ -33,17 +30,23 @@ class LinkedList {
   }
 
   removeHead() {
-    //1 - retrieve the head
-    //2 - copy (store) it to the variable
-    //3 -
-
     const headBefore = this.head;
-    console.log("Head is", this.head);
+    this.head = null;
 
-    return this.head;
+    return headBefore;
   }
 
-  findNode(value) {}
+  findNode(value) {
+    let node = this.head;
+    while (node.next != null) {
+      if (node.value === value) {
+        return node;
+      } else {
+        node = node.next;
+      }
+    }
+    return null;
+  }
 
   /*
 +-------------------------+
