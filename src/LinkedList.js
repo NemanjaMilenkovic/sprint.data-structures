@@ -27,13 +27,22 @@ class LinkedList {
 
     // console.log("wll", this.tail);
 
-    //1- we need iterate through the list
-    //2- we need to get to the end of the list
-    //3- we need to add the object value to the new node
-    //4- we need to return the new node
+    //1 - we need iterate through the list
+    //2 - we need to get to the end of the list
+    //3 - we need to add the object value to the new node
+    //4 - we need to return the new node
   }
 
-  removeHead() {}
+  removeHead() {
+    //1 - retrieve the head
+    //2 - copy (store) it to the variable
+    //3 -
+
+    const headBefore = this.head;
+    console.log("Head is", this.head);
+
+    return this.head;
+  }
 
   findNode(value) {}
 
