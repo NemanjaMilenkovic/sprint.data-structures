@@ -1,43 +1,72 @@
 class BinarySearchTree {
   constructor(value) {
     this.value = value;
-    this.left = [];
-    this.right = [];
+    this.left = null;
+    this.right = null;
   }
   insert(toInsert) {
-    let direction = true;
+    const topNode = this;
 
-    function traverseTree(node) {
-      // 1. we need to get to an end of the tree (recurse untill both .left and .right are empty [])
-      // 2. once we get to the end, we need to check if value is supposed to go to the .left or .right
-      // 3. we need to create new node and assign toInsert to the node value
-      // console.log("test1", Array.isArray(node.left) && node.left.length);
-
-      // node.left[0].value
-
-      if (!(node.left[0] && node.right[0])) {
-        if (toInsert < node.value) {
-          node.left.push(new BinarySearchTree(toInsert));
-          return;
+    function findNode(toInsert) {
+      let node = topNode;
+      // console.log(node.left);
+      while (node.left !== null && node.right !== null) {
+        if (node.left != null) {
+          node = node.left;
         }
-
-        if (toInsert > node.value) {
-          node.right.push(new BinarySearchTree(toInsert));
-          return;
-        }
-      } else {
-        if (node.value > toInsert) {
-          traverseTree(node.left[0]);
-        }
-
-        if (node.value < toInsert) {
-          traverseTree(node.right[0]);
+        if (node.right != null) {
+          node = node.right;
         }
       }
+      if (toInsert < node.value) {
+        node.left = new BinarySearchTree(toInsert);
+      } else if (toInsert > node.value) {
+        node.right = new BinarySearchTree(toInsert);
+      }
     }
-    let l = this;
-    traverseTree(l);
+    findNode(toInsert);
+    console.log(this);
     return this;
+
+    // function traverseTree(node) {
+    //   // 1. does our node have children?
+    //   // 2. are they both empty?
+    //   // 3 if so, new tree --> check if insert is lower or higher than node.value
+    //   // 4. store the null node for later eg --> if insert value is lower than top node
+    //   // 5.
+
+    //   console.log("the first node is", topNode);
+
+    //   if (node && node.left === null && node.right === null) {
+    //     if (toInsert === node.value) {
+    //       return;
+    //     }
+    //     if (toInsert < node.value) {
+    //       node.left = new BinarySearchTree(toInsert);
+    //       return;
+    //     } else if (toInsert > node.value) {
+    //       node.right = new BinarySearchTree(toInsert);
+    //       return;
+    //     }
+    //   }
+
+    //   if (toInsert < topNode.value) {
+    //     console.log("value is", node.value);
+    //   }
+
+    //   if (node && node.value > toInsert && topNode.value > toInsert) {
+    //     console.log("node value", node.value);
+    //     traverseTree(node.left);
+    //   } else if (node && node.value < toInsert && topNode.value > toInsert) {
+    //     console.log(node.right);
+    //     traverseTree(node.right);
+    //   }
+    //   // else if (node && toInsert < topNode) {}
+    // }
+
+    // traverseTree(this);
+    // // console.log(this);
+    // // return this;
   }
 }
 
