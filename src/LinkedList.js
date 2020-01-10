@@ -30,10 +30,11 @@ class LinkedList {
   }
 
   removeHead() {
-    const headBefore = this.head;
-    this.head = null;
+    const headStorage = this.head;
+    const nextHead = this.head.next;
+    this.head = nextHead;
 
-    return headBefore;
+    return headStorage;
   }
 
   findNode(value) {
