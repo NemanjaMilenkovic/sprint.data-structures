@@ -30,6 +30,16 @@ class BinarySearchTree {
     traverseTree(this);
     return this;
   }
+  contains(valueToFind) {
+    function traverseTree(node) {
+      if (!node) return false;
+      if (valueToFind === node.value) return true;
+      if (node.left === null && node.right === null) return false;
+      if (valueToFind < node.valueToFind) return traverseTree(node.left);
+      else return traverseTree(node.right);
+    }
+    return traverseTree(this);
+  }
 }
 
 module.exports = BinarySearchTree;
