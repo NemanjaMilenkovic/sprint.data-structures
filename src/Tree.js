@@ -4,50 +4,23 @@ class Tree {
     this.children = [];
   }
 
-  addChild(value) {
-    function recurse(node) {
-      // let direction;
-
-      // if (direction !== undefined && direction.length === 0) {
-      //   direction.push(new Tree(value));
-      // }
-
-      //  if (node.left.length === 0 && node.right.len) {
-      //   node.children[0].push(new Tree(value));
-      // }
-      console.log("nodeChildren", node.children !== undefined);
-
-      console.log("ssa");
-      if (
-        node.children[0] !== undefined > 0 &&
-        node.children[0].value !== undefined &&
-        node.children[0].value > value
-      ) {
-        console.log(node.children[0]);
-        recurse(node.children[0]);
-
-        // node.left.value = value;
-        // node.
-      }
-
-      if (
-        node.children[1] !== undefined &&
-        node.children[1].value !== undefined &&
-        node.children[1].value < value
-      ) {
-        console.log(node.children[0]);
-        recurse(node.children[1]);
-
-        // node.left.value = value;
-        // node.
-      }
-    }
-    const node = this;
-    recurse(node);
+  addChild(valueToInsert) {
+    this.children.push(new Tree(valueToInsert));
   }
 
-  contains(value) {}
+  contains(valueToFind) {
+    let found = false;
+    function traverseTree(node) {
+      if (!node) found = false;
+      if (valueToFind === node.value) found = true;
 
+      if (node.children.length > 0)
+        for (let i = 0; i < node.children.length; i++)
+          traverseTree(node.children[i]);
+    }
+    traverseTree(this);
+    return found;
+  }
   /*
 +-------------------------+
 | Advanced Requirements!! |
