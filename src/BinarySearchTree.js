@@ -40,6 +40,14 @@ class BinarySearchTree {
     }
     return traverseTree(this);
   }
+  traverseDepthFirstInOrder(func) {
+    function traverseTree(node) {
+      if (node.left != null) traverseTree(node.left);
+      func(node);
+      if (node.right != null) traverseTree(node.right);
+    }
+    traverseTree(this);
+  }
 }
 
 module.exports = BinarySearchTree;
