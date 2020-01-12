@@ -23,10 +23,7 @@ class LinkedList {
     this.tail = newNode;
     return this.tail;
 
-    //1 - we need iterate through the list
-    //2 - we need to get to the end of the list
-    //3 - we need to add the object value to the new node
-    //4 - we need to return the new node
+    // O(1)
   }
 
   removeHead() {
@@ -35,6 +32,7 @@ class LinkedList {
     this.head = nextHead;
 
     return headStorage;
+    // O(1)
   }
 
   findNode(value) {
@@ -47,6 +45,7 @@ class LinkedList {
       }
     }
     return null;
+    // O(n)
   }
 
   /*

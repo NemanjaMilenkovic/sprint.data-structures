@@ -29,6 +29,7 @@ class BinarySearchTree {
     }
     traverseTree(this);
     return this;
+    // O(log n)
   }
   contains(valueToFind) {
     function traverseTree(node) {
@@ -39,6 +40,7 @@ class BinarySearchTree {
       else return traverseTree(node.right);
     }
     return traverseTree(this);
+    // O(log n)
   }
   traverseDepthFirstInOrder(func) {
     function traverseTree(node) {
@@ -47,6 +49,7 @@ class BinarySearchTree {
       if (node.right != null) traverseTree(node.right);
     }
     traverseTree(this);
+    // O(log n)
   }
 }
 

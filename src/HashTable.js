@@ -9,11 +9,13 @@ class HashTable {
   insert(key, value) {
     const index = simpleHash(key, this.limit);
     this.storage.set(index, value);
+    // O(n)
   }
 
   retrieve(key) {
     const index = simpleHash(key, this.limit);
     return this.storage.get(index);
+    // O(n)
   }
 
   remove(key) {
@@ -22,6 +24,7 @@ class HashTable {
 
     this.storage.set(index, null);
     return true;
+    // O(n)
   }
 }
 

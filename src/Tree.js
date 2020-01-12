@@ -6,6 +6,7 @@ class Tree {
 
   addChild(valueToInsert) {
     this.children.push(new Tree(valueToInsert));
+    // O(1)
   }
 
   contains(valueToFind) {
@@ -20,6 +21,7 @@ class Tree {
     }
     traverseTree(this);
     return found;
+    // O(n2)
   }
   /*
 +-------------------------+
