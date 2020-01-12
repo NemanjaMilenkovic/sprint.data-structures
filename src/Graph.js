@@ -10,10 +10,12 @@ class Graph {
 
   addNode(num) {
     if (!this.nodes.hasOwnProperty(num)) this.nodes[num] = [];
+    // O(1)
   }
 
   contains(num) {
     return this.nodes.hasOwnProperty(num);
+    // O(1)
   }
 }
 module.exports = Graph;
