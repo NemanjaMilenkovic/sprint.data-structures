@@ -7,7 +7,16 @@ class Graph {
      */
     this.nodes = {}; // Adjacency List
   }
+
+  addNode(num) {
+    if (!this.nodes.hasOwnProperty(num)) this.nodes[num] = [];
+  }
+
+  contains(num) {
+    return this.nodes.hasOwnProperty(num);
+  }
 }
+module.exports = Graph;
 
 /*
 |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
